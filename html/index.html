@@ -1,0 +1,199 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+body {
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:#777;
+	background:#0CF;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:#F9F9F9;
+	padding:25px;
+	margin:50px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+
+#thank-you-message {
+  display: none;
+}
+
+#thank-you-message.show {
+  display: block;
+}
+</style>
+    <title>Docker file for cloud run</title>
+</head>
+<body>
+
+<div class="container">
+
+  <form id="contact" action="" method="post"  onsubmit="return confirm('Do you really want to submit the details?');">
+    <h3>Lead Details</h3>
+	<p id="thank-you-message" style="color:blue;">
+		Lead form data submitted successfully.
+	  </p>
+    <br>
+    <fieldset>
+      <input placeholder="Customer Name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Customer Email" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Customer Contact No." type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Pin Code" type="text" tabindex="4" required>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="Interested Model" type="text" tabindex="4" required list="intrestedModel">
+	  <datalist id="intrestedModel">
+		<option value="Bolero">
+		<option value="Bolero Power Plus">
+			<option value="E2O">
+				<option value="KUV100">
+					<option value="Bolero">
+						<option value="Nuvosport">
+							<option value="Quanto">
+								<option value="Rexton">
+	  </datalist>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Likely Purchase" type="text" tabindex="4" required list="likelyPurchase">
+	  <datalist id="likelyPurchase">
+		<option value="< 15 Days">
+		<option value="15-45 Days">
+		<option value="> 45 Days">
+	  </datalist>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Please Enter Remarks...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+
+
+</div>
+<script>
+
+const form = document.querySelector('form');
+const thankYouMessage = document.querySelector('#thank-you-message');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  thankYouMessage.classList.add('show');
+  form.reset();
+});
+</script>
+</body>
+</html>
